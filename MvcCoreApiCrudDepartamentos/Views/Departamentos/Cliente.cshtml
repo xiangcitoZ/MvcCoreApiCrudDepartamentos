@@ -3,6 +3,19 @@
         var urlApi = "https://apicorecruddepartamentos2023xzx.azurewebsites.net/";
         $(document).ready(function(){
             cargarDepartamentos();
+            $("#botondelete").click(function () {
+                var id = $("#cajaid").val();
+                var request = "api/departamentos/" + id;
+                $.ajax({
+                    url: urlApi + request,
+                    method: "DELETE",
+                    success: function () {
+                        cargarDepartamentos();
+                    }
+                });
+            });
+
+
 
         })
 
